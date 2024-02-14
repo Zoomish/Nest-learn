@@ -11,19 +11,11 @@ export class Role extends Model<Role, RoleCreationAttrs> {
     @Column({ type: DataType.INTEGER, unique: true, primaryKey: true, autoIncrement: true })
     id?: number;
 
-    @ApiProperty({ example: 'test@gmail.com', description: 'Уникальная почта' })
+    @ApiProperty({ example: 'ADMIN', description: 'Значение роли' })
     @Column({ type: DataType.STRING, unique: true, allowNull: false })
-    email: string;
+    value: string;
 
-    @ApiProperty({ example: '12345', description: 'Пароль пользователя' })
+    @ApiProperty({ example: 'Администратор', description: 'Описание роли' })
     @Column({ type: DataType.STRING, allowNull: false })
-    password: string;
-
-    @ApiProperty({ example: 'true', description: 'Забанен ли пользователь' })
-    @Column({ type: DataType.BOOLEAN, defaultValue: false })
-    banned: boolean;
-
-    @ApiProperty({ example: 'Флуд', description: 'Прчина бана' })
-    @Column({ type: DataType.STRING, allowNull: true, defaultValue: null })
-    banReason: string;
+    description: string;
 }
