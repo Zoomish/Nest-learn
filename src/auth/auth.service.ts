@@ -13,6 +13,7 @@ export class AuthService {
     async login(userDto: CreateUserDto) {
     }
 
+
     async registration(userDto: CreateUserDto) {
         const candidate = await this.userService.getUserByEmail(userDto.email);
         if (candidate) {
@@ -24,7 +25,7 @@ export class AuthService {
     }
 
     async generateToken(user: User) {
-        const payload = {email: user.email, id: user.id, roles: user.roles.map(role => role.value)}
+        const payload = {email: user.email, id: user.id, roles: user.roles}
         return {
             token: this.jwtService.sign(payload)
         }
