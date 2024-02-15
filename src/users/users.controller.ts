@@ -19,9 +19,9 @@ export class UsersController {
         return this.userService.createUser(userDto);
     }
 
-    @ApiOperation({ summary: 'Получение пользователей' })
-    @ApiResponse({ status: 200, type: [User] })
-    @Roles('ADMIN')
+    @ApiOperation({summary: 'Получить всех пользователей'})
+    @ApiResponse({status: 200, type: [User]})
+    @Roles("ADMIN")
     @UseGuards(RolesGuard)
     @Get()
     getAll() {
