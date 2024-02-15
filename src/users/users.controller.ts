@@ -6,6 +6,7 @@ import { User } from './users.model';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { RolesGuard } from 'src/auth/roles.guard';
 import { Roles } from 'src/auth/roles-auth.decorator';
+import { AddRoleDto } from './dto/add-role.dto';
 
 @ApiTags('Пользователи')
 @Controller('users')
@@ -33,7 +34,16 @@ export class UsersController {
     @Roles("ADMIN")
     @UseGuards(RolesGuard)
     @Get('/role')
-    addRole() {
-        return this.userService.addRole(dto: addRoleDto);
+    addRole(@Body() dto: AddRoleDto) {
+        return this.userService.addRole(dto);
+    }
+
+    @ApiOperation({summary: 'Забанить пользователя'})
+    @ApiResponse({status: 200})
+    @Roles("ADMIN")
+    @UseGuards(RolesGuard)
+    @Get('/ban')
+    banUser(@Body() dto: AddRoleDto) {
+        return this.userService.addRole(dto);
     }
 }
