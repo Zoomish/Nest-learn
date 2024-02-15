@@ -27,4 +27,13 @@ export class UsersController {
     getAll() {
         return this.userService.getAllUsers();
     }
+
+    @ApiOperation({summary: 'Выдать роль'})
+    @ApiResponse({status: 200})
+    @Roles("ADMIN")
+    @UseGuards(RolesGuard)
+    @Get('/role')
+    addRole() {
+        return this.userService.addRole(dto: addRoleDto);
+    }
 }
