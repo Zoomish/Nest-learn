@@ -43,7 +43,7 @@ export class UsersController {
     @ApiResponse({status: 200})
     @Roles("ADMIN")
     @UseGuards(RolesGuard)
-    @Get('/ban')
+    @Post('/ban')
     banUser(@Body() dto: BanUserDto) {
         return this.userService.ban(dto);
     }
