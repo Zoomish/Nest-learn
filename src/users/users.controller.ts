@@ -7,6 +7,7 @@ import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { RolesGuard } from 'src/auth/roles.guard';
 import { Roles } from 'src/auth/roles-auth.decorator';
 import { AddRoleDto } from './dto/add-role.dto';
+import { BanUserDto } from './dto/ban-user.dto';
 
 @ApiTags('Пользователи')
 @Controller('users')
@@ -43,7 +44,7 @@ export class UsersController {
     @Roles("ADMIN")
     @UseGuards(RolesGuard)
     @Get('/ban')
-    banUser(@Body() dto: AddRoleDto) {
-        return this.userService.addRole(dto);
+    banUser(@Body() dto: BanUserDto) {
+        return this.userService.ban(dto);
     }
 }
