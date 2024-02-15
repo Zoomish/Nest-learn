@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable, HttpException } from '@nestjs/common';
 import { User } from "./users.model";
 import { InjectModel } from "@nestjs/sequelize";
 import { CreateUserDto } from "./dto/create-user.dto";
@@ -37,13 +37,14 @@ export class UsersService {
             await user.$add('role', role.id);
             return dto;
         }
+        throw new HttpException('User or role not found', HttpStatus.NOT_FOUND);
     }
 
     async ban(dto: BanUserDto) {
-        const user = await this.userRepository.findByPk(dto.userId);
-        user.banned = dto.isBanned;
-        user.banReason = dto.banReason;
-        await user.save();
-        return user;
+        // const user = await this.userRepository.findByPk(dto.userId);
+        // user.banned = dto.isBanned;
+        // user.banReason = dto.banReason;
+        // await user.save();
+        // return user;
     }
 }
