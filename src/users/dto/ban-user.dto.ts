@@ -1,6 +1,6 @@
 
 
 export class BanUserDto {
-    readonly userId: number
-    readonly isBanned: boolean
+    readonly userId: number;
+    readonly banReason: string;
 }
