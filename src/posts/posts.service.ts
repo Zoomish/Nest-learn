@@ -8,7 +8,7 @@ export class PostsService {
 
     constructor(@InjectModel(Post) private postRepository: typeof Post) { }
 
-    async create(dto: CreatePostDto, image) {
+    async create(dto: CreatePostDto, image: any) {
         const post = await this.postRepository.create(dto);
         return post;
     }
