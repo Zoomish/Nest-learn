@@ -3,12 +3,12 @@ import { AllowNull, BelongsToMany, Column, DataType, HasMany, Model, Table } fro
 import { Role } from "src/roles/roles.model";
 import { UserRoles } from "src/roles/user-roles.model";
 
-interface UserCreationAttrs {
+interface PostCreationAttrs {
     email: string;
     password: string;
 }
-@Table({ tableName: 'users' })
-export class User extends Model<User, UserCreationAttrs> {
+@Table({ tableName: 'posts' })
+export class Post extends Model<Post, PostCreationAttrs> {
     @ApiProperty({ example: '1', description: 'Уникальный идентефикатор' })
     @Column({ type: DataType.INTEGER, unique: true, primaryKey: true, autoIncrement: true })
     id: number;
