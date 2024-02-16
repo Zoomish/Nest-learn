@@ -3,7 +3,7 @@ import { AllowNull, BelongsToMany, Column, DataType, HasMany, Model, Table } fro
 
 interface PostCreationAttrs {
     title: string;
-    password: string;
+    content: string;
 }
 @Table({ tableName: 'posts' })
 export class Post extends Model<Post, PostCreationAttrs> {
@@ -17,5 +17,5 @@ export class Post extends Model<Post, PostCreationAttrs> {
 
     @ApiProperty({ example: '12345', description: 'Пароль пользователя' })
     @Column({ type: DataType.STRING, allowNull: false })
-    password: string;
+    content: string;
 }
