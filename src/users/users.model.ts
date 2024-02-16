@@ -9,7 +9,7 @@ interface UserCreationAttrs {
 }
 @Table({ tableName: 'users' })
 export class User extends Model<User, UserCreationAttrs> {
-    @ApiProperty({ example: '1', description: 'Уникальный идентефикатор' })
+    @ApiProperty({ example: 1, description: 'Уникальный идентефикатор' })
     @Column({ type: DataType.INTEGER, unique: true, primaryKey: true, autoIncrement: true })
     id: number;
 
