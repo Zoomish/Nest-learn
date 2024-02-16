@@ -20,7 +20,7 @@ export class Post extends Model<Post, PostCreationAttrs> {
     @Column({ type: DataType.STRING, allowNull: false })
     content: string;
 
-    @ApiProperty({ example: '12345', description: 'Пароль пользователя' })
+    @ApiProperty({ example: 'Картинка', description: 'Захватывающая картинка' })
     @Column({ type: DataType.STRING, allowNull: false })
     image: string;
 }
