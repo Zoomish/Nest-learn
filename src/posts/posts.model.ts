@@ -4,7 +4,7 @@ import { Role } from "src/roles/roles.model";
 import { UserRoles } from "src/roles/user-roles.model";
 
 interface PostCreationAttrs {
-    email: string;
+    title: string;
     password: string;
 }
 @Table({ tableName: 'posts' })
@@ -15,7 +15,7 @@ export class Post extends Model<Post, PostCreationAttrs> {
 
     @ApiProperty({ example: 'test@gmail.com', description: 'Уникальная почта' })
     @Column({ type: DataType.STRING, unique: true, allowNull: false })
-    email: string;
+    title: string;
 
     @ApiProperty({ example: '12345', description: 'Пароль пользователя' })
     @Column({ type: DataType.STRING, allowNull: false })
