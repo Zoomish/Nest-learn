@@ -12,6 +12,6 @@ export class PostsController {
     @UseInterceptors(FileInterceptor('image'))
     createPost(@Body() dto: CreatePostDto,
     @UploadedFile() image){
-        this.postsService.create(dto, image)
+        return this.postsService.create(dto, image)
     }
 }
