@@ -15,7 +15,7 @@ export class Post extends Model<Post, PostCreationAttrs> {
     id: number;
 
     @ApiProperty({ example: 'Пираты', description: 'Очень интересный заголовок' })
-    @Column({ type: DataType.STRING, unique: true, allowNull: false })
+    @Column({ type: DataType.STRING, allowNull: false })
     title: string;
 
     @ApiProperty({ example: 'АААААА', description: 'ОЧень интересный контент' })
@@ -23,12 +23,12 @@ export class Post extends Model<Post, PostCreationAttrs> {
     content: string;
 
     @ApiProperty({ example: 'Картинка', description: 'Захватывающая картинка' })
-    @Column({ type: DataType.STRING, allowNull: false })
+    @Column({ type: DataType.STRING, allowNull: true })
     image: string;
 
     @ApiProperty({ example: 1, description: 'Id Создателя' })
-    @ForeignKey(()=> User)
-    @Column({type :DataType.INTEGER})
+    @ForeignKey(() => User)
+    @Column({ type: DataType.INTEGER })
     userId: number
 
     @BelongsTo(() => User)
