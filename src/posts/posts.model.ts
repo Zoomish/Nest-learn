@@ -25,6 +25,8 @@ export class Post extends Model<Post, PostCreationAttrs> {
     @Column({ type: DataType.STRING, allowNull: false })
     image: string;
 
+    userId: number
+
     @BelongsTo(() => User)
     autor: User
 }
