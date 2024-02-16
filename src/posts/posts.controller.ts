@@ -1,4 +1,9 @@
 import { Controller } from '@nestjs/common';
 
 @Controller('posts')
-export class PostsController {}
+export class PostsController {
+
+    createPost(dto: CreatePostDto){
+
+    }
+}
