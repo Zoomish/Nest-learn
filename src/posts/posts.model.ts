@@ -13,7 +13,7 @@ export class Post extends Model<Post, PostCreationAttrs> {
     @ApiProperty({ example: 1, description: 'Уникальный идентефикатор' })
     @Column({ type: DataType.INTEGER, unique: true, primaryKey: true, autoIncrement: true })
     id: number;
-
+    
     @ApiProperty({ example: 'Пираты', description: 'Очень интересный заголовок' })
     @Column({ type: DataType.STRING, allowNull: false })
     title: string;
