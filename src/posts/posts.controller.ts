@@ -5,7 +5,6 @@ import { Body, Controller, Post, UploadedFile, UseInterceptors } from '@nestjs/c
 
 @Controller('posts')
 export class PostsController {
-
     constructor(private postsService: PostsService) { }
 
     @Post()
