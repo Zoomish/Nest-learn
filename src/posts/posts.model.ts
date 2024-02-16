@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { AllowNull, BelongsToMany, Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
+import { AllowNull, BelongsTo, BelongsToMany, Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
+import { User } from "src/users/users.model";
 
 interface PostCreationAttrs {
     title: string;
@@ -23,4 +24,7 @@ export class Post extends Model<Post, PostCreationAttrs> {
     @ApiProperty({ example: 'Картинка', description: 'Захватывающая картинка' })
     @Column({ type: DataType.STRING, allowNull: false })
     image: string;
+
+    @BelongsTo(() => User)
+    autor: User
 }
