@@ -10,6 +10,7 @@ import { User } from 'src/users/users.model';
   controllers: [PostsController],
   imports: [
     SequelizeModule.forFeature([User, Post]),
+    FilesModule
   ],
 })
 export class PostsModule { }
