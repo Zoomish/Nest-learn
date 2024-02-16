@@ -9,7 +9,8 @@ export class PostsService {
     constructor(@InjectModel(Post) private postRepository: typeof Post) { }
 
     async create(dto: CreatePostDto, image: any) {
-        const post = await this.postRepository.create(dto);
+        const fileName = 'asfas'
+        const post = await this.postRepository.create({...dto, image: fileName});
         return post;
     }
 }
